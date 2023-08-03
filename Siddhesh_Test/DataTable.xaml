@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DataTable" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,2502" sap2010:WorkflowViewState.IdRef="DataTable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DataTable" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,3730" sap2010:WorkflowViewState.IdRef="DataTable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -29,6 +29,8 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -68,26 +70,39 @@
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DataTable" sap:VirtualizedContainerService.HintSize="547,2437" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DataTable" sap:VirtualizedContainerService.HintSize="547,3665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Siddhesh_Vinayak_3B" sap:VirtualizedContainerService.HintSize="485,2326" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Siddhesh_Vinayak_3B" sap:VirtualizedContainerService.HintSize="485,3554" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="op" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt" />
         <Variable x:TypeArguments="sd:DataRow" Name="new_row" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt2" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt3" />
+        <Variable x:TypeArguments="x:String" Name="join_op" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BuildDataTable DataTable="[dt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;FirstName&quot; msdata:Caption=&quot;&quot; default=&quot;Na&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;LastName&quot; msdata:Caption=&quot;&quot; default=&quot;NA&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;15&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;RollNo&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xA;        &lt;xs:field xpath=&quot;RollNo&quot; /&gt;&#xA;      &lt;/xs:unique&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;FirstName&gt;Siddhesh&lt;/FirstName&gt;&#xA;    &lt;LastName&gt;Bomble&lt;/LastName&gt;&#xA;    &lt;RollNo&gt;3&lt;/RollNo&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;FirstName&gt;Vinayak&lt;/FirstName&gt;&#xA;    &lt;LastName&gt;Mhavarkar&lt;/LastName&gt;&#xA;    &lt;RollNo&gt;30&lt;/RollNo&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:BuildDataTable DataTable="[dt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;FirstName&quot; msdata:Caption=&quot;&quot; default=&quot;Na&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;LastName&quot; msdata:Caption=&quot;&quot; default=&quot;NA&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;15&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;RollNo&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xD;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xD;&#xA;        &lt;xs:field xpath=&quot;RollNo&quot; /&gt;&#xD;&#xA;      &lt;/xs:unique&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;FirstName&gt;Siddhesh&lt;/FirstName&gt;&#xD;&#xA;    &lt;LastName&gt;Bomble&lt;/LastName&gt;&#xD;&#xA;    &lt;RollNo&gt;3&lt;/RollNo&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;FirstName&gt;Vinayak&lt;/FirstName&gt;&#xD;&#xA;    &lt;LastName&gt;Mhavarkar&lt;/LastName&gt;&#xD;&#xA;    &lt;RollNo&gt;30&lt;/RollNo&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
       <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[op]" />
       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[op]" />
       <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Address" DataTable="[dt]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="423,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
@@ -146,6 +161,29 @@
       <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Address" DataTable="[dt]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="423,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
       <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[op]" />
       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[op]" />
+      <ui:BuildDataTable DataTable="[dt2]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;emp_fname&quot; msdata:Caption=&quot;&quot; default=&quot;NA&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;emp_lname&quot; msdata:Caption=&quot;&quot; default=&quot;Na&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Id&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;emp_fname&gt;fname&lt;/emp_fname&gt;&#xD;&#xA;    &lt;emp_lname&gt;lname&lt;/emp_lname&gt;&#xD;&#xA;    &lt;Id&gt;1&lt;/Id&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;emp_fname&gt;fname&lt;/emp_fname&gt;&#xD;&#xA;    &lt;emp_lname&gt;lname&lt;/emp_lname&gt;&#xD;&#xA;    &lt;Id&gt;1&lt;/Id&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:JoinDataTables DataTable1="[dt]" DataTable2="[dt2]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Full" OutputDataTable="[dt3]">
+        <ui:JoinDataTables.Arguments>
+          <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
+            <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
+              <ui:JoinOperationArgument.Column1>
+                <InArgument x:TypeArguments="x:String">["RollNo"]</InArgument>
+              </ui:JoinOperationArgument.Column1>
+              <ui:JoinOperationArgument.Column2>
+                <InArgument x:TypeArguments="x:String">["Id"]</InArgument>
+              </ui:JoinOperationArgument.Column2>
+            </ui:JoinOperationArgument>
+          </scg:List>
+        </ui:JoinDataTables.Arguments>
+      </ui:JoinDataTables>
+      <ui:OutputDataTable DataTable="[dt3]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_5" Text="[join_op]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[join_op]" />
+      <ui:MergeDataTable Destination="[dt]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="423,133" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[dt2]" />
+      <ui:OutputDataTable DataTable="[dt2]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_6" Text="[join_op]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[join_op]" />
+      <ui:RemoveDuplicateRows OutputDataTable="{x:Null}" DataTable="[dt2]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_1" />
+      <ui:OutputDataTable DataTable="[dt2]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_7" Text="[join_op]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;remove duplicate : &quot;+join_op]" />
     </Sequence>
   </Sequence>
 </Activity>

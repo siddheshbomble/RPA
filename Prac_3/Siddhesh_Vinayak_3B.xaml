@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Siddhesh_Vinayak_3B" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,2391" sap2010:WorkflowViewState.IdRef="Siddhesh_Vinayak_3B_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Siddhesh_Vinayak_3B" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,515" sap2010:WorkflowViewState.IdRef="Siddhesh_Vinayak_3B_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -82,7 +82,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Siddhesh_Vinayak_3B" sap:VirtualizedContainerService.HintSize="485,2326" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Siddhesh_Vinayak_3B" sap:VirtualizedContainerService.HintSize="450,104" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="op" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
@@ -93,64 +93,5 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DataTable="[dt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="423,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;FirstName&quot; msdata:Caption=&quot;&quot; default=&quot;Na&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;LastName&quot; msdata:Caption=&quot;&quot; default=&quot;NA&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;15&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;RollNo&quot; msdata:AutoIncrement=&quot;true&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;      &lt;xs:unique name=&quot;Constraint1&quot;&gt;&#xD;&#xA;        &lt;xs:selector xpath=&quot;.//TableName&quot; /&gt;&#xD;&#xA;        &lt;xs:field xpath=&quot;RollNo&quot; /&gt;&#xD;&#xA;      &lt;/xs:unique&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;FirstName&gt;Siddhesh&lt;/FirstName&gt;&#xD;&#xA;    &lt;LastName&gt;Bomble&lt;/LastName&gt;&#xD;&#xA;    &lt;RollNo&gt;3&lt;/RollNo&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;FirstName&gt;Vinayak&lt;/FirstName&gt;&#xD;&#xA;    &lt;LastName&gt;Mhavarkar&lt;/LastName&gt;&#xD;&#xA;    &lt;RollNo&gt;30&lt;/RollNo&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[op]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[op]" />
-    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Address" DataTable="[dt]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="423,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="423,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="sd:DataRow">[new_row]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="sd:DataRow">[dt.NewRow]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[new_row("FirstName")]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">["Anjali"]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[new_row("LastName")]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">["Gawade"]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[new_row("RollNo")]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">[10]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:Object">[new_row("Address")]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:Object">["Bhandup"]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{new_row(&quot;FirstName&quot;),new_row(&quot;LastName&quot;),new_row(&quot;RollNo&quot;),new_row(&quot;Address&quot;)}]" DataTable="[dt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="423,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-    <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[op]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[op]" />
-    <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="FirstName" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="423,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[dt.Rows(2)]" Value="[&quot;Divya&quot;]" />
-    <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[op]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[op]" />
-    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Address" DataTable="[dt]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="423,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
-    <ui:OutputDataTable DataTable="[dt]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="423,80" sap2010:WorkflowViewState.IdRef="OutputDataTable_4" Text="[op]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="423,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[op]" />
   </Sequence>
 </Activity>
