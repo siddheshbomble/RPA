@@ -4,7 +4,7 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.21.0-preview]",
+    "UiPath.Excel.Activities": "[2.22.1-preview]",
     "UiPath.GSuite.Activities": "2.2.5",
     "UiPath.Mail.Activities": "[1.20.2]",
     "UiPath.System.Activities": "[23.6.0-preview]",
@@ -15,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.6.1.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -45,13 +45,20 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true
+    "modernBehavior": true,
+    "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
       "uniqueId": "830239f1-67e0-4712-b16a-531f4e5920dd",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "prac_8\\vinayak_siddhesh_prac_8c.xaml",
+      "uniqueId": "b5d6841a-6da2-42cc-9658-bc464a473123",
       "input": [],
       "output": []
     }
