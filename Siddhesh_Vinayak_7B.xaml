@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Siddhesh_Vinayak_7B" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1410.4,2447.2" sap2010:WorkflowViewState.IdRef="Siddhesh_Vinayak_7B_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Siddhesh_Vinayak_7B" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1922.4,1260.8" sap2010:WorkflowViewState.IdRef="Siddhesh_Vinayak_7B_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -36,6 +36,9 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,14 +97,18 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Siddhesh_Vinayak_7B" sap:VirtualizedContainerService.HintSize="814.4,2382.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Siddhesh_Vinayak_7B" sap:VirtualizedContainerService.HintSize="718.4,1196" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="file" />
       <Variable x:TypeArguments="x:String" Name="path">
         <Variable.Default>
-          <Literal x:TypeArguments="x:String">C:/Users/siddh/OneDrive/Documents/UiPath/RPA_Pracs/invoices</Literal>
+          <Literal x:TypeArguments="x:String">C:\Users\user\Documents\UiPath\RPA\invoices</Literal>
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:Int32" Default="1" Name="counter" />
@@ -111,111 +118,76 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="752,2270.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="C:\Users\siddh\OneDrive\Documents\UiPath\RPA_Pracs\excelfiles\book1.xlsx">
-      <ui:ExcelApplicationScope.Body>
-        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+    <Assign sap:VirtualizedContainerService.HintSize="656,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[file]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(path)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="656,962.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[file]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="718.4,2160.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="622.4,774.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="656,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign sap:VirtualizedContainerService.HintSize="579.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
-                <OutArgument x:TypeArguments="s:String[]">[file]</OutArgument>
+                <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(path)]</InArgument>
+                <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="656,1927.2" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[file]">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="x:String">
+            <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[currentItem]" sap:VirtualizedContainerService.HintSize="579.2,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="579.2,435.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" InstanceCachePeriod="3000" WorkbookPath="C:\Users\user\Documents\UiPath\RPA\vinayak_test\book1.xlsx">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="622.4,1739.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="545.6,325.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="579.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'msedge.exe wordpress.pdf'" sap:VirtualizedContainerService.HintSize="579.2,1528" sap2010:WorkflowViewState.IdRef="WindowScope_3" InformativeScreenshot="19b4b8f2f5a31dcf007eabe6b969d9db" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='*.pdf - Personal - Microsoft​ Edge' /&gt;">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window" sap:VirtualizedContainerService.HintSize="483.2,213.6" sap2010:WorkflowViewState.IdRef="WindowScope_5">
                       <ui:WindowScope.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="545.6,1380.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,104.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NApplicationCard DisplayName="Use Browser Edge: wordpress.pdf" sap:VirtualizedContainerService.HintSize="483.2,1268.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="c24ee432-52c6-465d-acc3-5e7241e4e777">
-                              <uix:NApplicationCard.Body>
-                                <ActivityAction x:TypeArguments="x:Object">
-                                  <ActivityAction.Argument>
-                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                                  </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,1052" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                                    <Sequence.Variables>
-                                      <Variable x:TypeArguments="x:String" Name="invoice_no" />
-                                      <Variable x:TypeArguments="x:String" Name="invoice_date" />
-                                      <Variable x:TypeArguments="x:String" Name="invoice_due" />
-                                    </Sequence.Variables>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <uix:NGetText DisplayName="Get Text 'INV-3337'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_11" ScopeIdentifier="c24ee432-52c6-465d-acc3-5e7241e4e777" TextString="[invoice_no]" Version="V3">
-                                      <uix:NGetText.Target>
-                                        <uix:TargetAnchorable CvType="AnyWordGroup" DesignTimeRectangle="1346, 460, 101, 28" DesignTimeScaleFactor="1.25" FriendlyName="'INV-3337'" FullSelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl idx='10' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl automationid='' role='grouping' /&gt;" Guid="19a5a1e0-91e2-4b36-846b-1c719faca386" InformativeScreenshot="76f72b2ae3a6bec24145426d759f85cc.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='wordpress.pdf - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-                                      </uix:NGetText.Target>
-                                    </uix:NGetText>
-                                    <ui:ExcelWriteCell Cell="[&quot;A&quot;+counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[invoice_no]" />
-                                    <uix:NGetText DisplayName="Get Text 'January 25, 2016'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_12" ScopeIdentifier="c24ee432-52c6-465d-acc3-5e7241e4e777" TextString="[invoice_date]" Version="V3">
-                                      <uix:NGetText.Target>
-                                        <uix:TargetAnchorable CvType="AnyWordGroup" DesignTimeRectangle="1346, 545, 184, 28" DesignTimeScaleFactor="1.25" FriendlyName="'January 25, 2016'" FullSelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl idx='14' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl automationid='' role='grouping' /&gt;" Guid="a007db56-14e9-4fc8-8ed5-44643b136493" InformativeScreenshot="5ad792a14d1cebf2ece7917ea470b43c.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='wordpress.pdf - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
-                                      </uix:NGetText.Target>
-                                    </uix:NGetText>
-                                    <ui:ExcelWriteCell Cell="[&quot;B&quot;+counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[invoice_date]" />
-                                    <uix:NGetText DisplayName="Get Text 'Total Due $93.50'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_17" ScopeIdentifier="c24ee432-52c6-465d-acc3-5e7241e4e777" TextString="[invoice_due]" Version="V3">
-                                      <uix:NGetText.Target>
-                                        <uix:TargetAnchorable DesignTimeRectangle="1067, 569, 352, 28" DesignTimeScaleFactor="1.25" FriendlyName="'Total Due $93.50'" FullSelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl idx='16' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl automationid='' role='grouping' /&gt;" Guid="3bb6b3e1-75e3-4907-8473-19aca3833ca5" InformativeScreenshot="d1a502c019f7e5cb8926531c919ef3d9.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='wordpress.pdf - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive" />
-                                      </uix:NGetText.Target>
-                                    </uix:NGetText>
-                                    <ui:ExcelWriteCell Cell="[&quot;C&quot;+counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[invoice_due]" />
-                                  </Sequence>
-                                </ActivityAction>
-                              </uix:NApplicationCard.Body>
-                              <uix:NApplicationCard.TargetApp>
-                                <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAvJSURBVFhHtdgJUJNnGgdwuioe3IrQnc4Onboz260Hch+iVWsBuUEiggceqLRal6qrqIBWVEAOuTxQ1K3Vumt3tdu6Wl0hJyQhQCAkIQnBW9GqTa9FKy3/fb4vH4eVeLT2mfkPwzDJ9+N5n+/93sTql5Sn4F6Qh/BmpbvwmtFddKVzgqgdE0RtcBcbMEGihbuklf3pUavs8pbXmXwVtQK/enEa9/LfrrwFX6V5Ce91eArvwEN4CwSEu+gS4S5SCCfWs7AJkha41zRjYm0jvGR18FHUwL9BiEnKC91Tmr8wTmv5PIh7yxdTvoLv0rwF35i8BSZ4Ce7BU/glAW8S8CrlMgscL9JjvLiVoiGgmqKCh7QRHrJ6eNXJCChCoLIaQU3nMFV1GsGtJ4yh+uO/DuonuO/mJ+hUEhDegq8J9xU8BXcwkXAThdcJd4UFjhcZOaAG4yVMWihNcK9tgKdcTpHBr17AdBBTmk9juvoUA0SY4SgijYcE3OWer8y4+52+gv/Bpx+QWdr+wPFCBmdggeNEGowTqykqAjazwIlSBTxlZqBfPZ8Fvqn6nAMeQezFvZh1udSUcK3Qjbv008uP/yCBcN1+hGO65yP4hgUy3esBThDS7AnbCdhGMB3GEm6sSE1REbCZ7eB4iZKQClpmGbzrJASs7tfBvyPc8CGijPsJWIa5N7Z3Jt/a/HSkP/8hde4B4TrBxEfwLeFMFFpe7uaYKLzBAZnZM3A4JipzCDiOBTLLXE8drIVPnQj+BJzcdJZm8N8IbT2KmbojiGnfi4SrhQwQybeyOhffTreMZHD+gh86/QUPWByzvOb567s5PIW3e2dvAi3vOJGWUEznWvCGqJlND5BF1jTSMtfBWy5hgUFKBvgpgrUfI8JwALHt5eBdLkTite1YcDMLBDRxnMcrgP9QGSD4AX3A77kO3oMXdc+TuudB3WPuXrZ7QkMvsAfXPyxU3ETbTR285DXwU1RhUuMZAp7EDM3H1MFDiGrbg9mXcwm3CYturUfKl2uw7O6qUxyprwiXFiB4iD5gz/x9jYnnv8TY09fx2lEdxhzT4bVjarx+xoA3qpjZY7o3MJCJGSgnoAS+Cj4CG5ht5hOEaP+GcH0Foo27kXAlh4AZWNixAcvurELq3dTuFfcWPbrUAfwuEyEJ9wPh7sPz3Nd49aAeo3dI4ZQlhNNWCUZm12JUdg1Gba+B8zYRnLfy8XKBGK9+1IjXq1QDAsdLGmjTJqBMQnNYjYCGM5isPIm3Wo4hVHsAMcZiJF75AElXtyD5xlosvf0OUu+k4t27yUaOZmUVyP8xLZDfRd17CN+q+3A70Aa7DCHst0jhmK2A044GjMxtwsidzRiVr4JzQTOc85UYnd+A0XlyuOyQwGUbn6D1+LOgDzqWujdO3MgCPaU1NIcErD9LwFMcsBKxxnwkXNyM+dfSsfDGKha47NYSvHtnXvfKu3PMXSRcBwP0OP0tnLLlsM2shd3Wethvb4ZDnhpO+a1wKtRhZJEBo4oNcC7Rw7lYh9HFWrgUa+BS1ATXfAVccyT4faEIfzpvRpqBSnqqKGiZa+Fbdx6B9Z9hqvJjzFAdRKhmN6INhQTMpGxkgSkdy7CsYwHeuZ2IlXfiTxHupyDqIOG+g12mDDZZCthkN8Fuhxr2ua1w2KmHY4EBTkVtcNrVhpHFbRhVYoRzmRGjKS5lbRQ9XEs0cC1shGteLV7OExCyr4sTJEwHhfCRn0NQw78wueEfBKxEmHYXonQ5iDNsxmzjesy7vArJV5dj+a0FSL2VSOF1WE3i/1Tpf+EhbDLlGJ5VD5utKths18I2pxV2eQbY7zTAocAIx0LKrnY4FbdjZEk7RpVehHNpO0aXX4RLuRnqWqqF6y7qZp6UkHxabiWLdK+RwktaDR/ZFwhSHCfgcbyt2oeZmmJEaPMQq99CwHWES8WCy0ux5Po8LLs5mwF2W006+33nK3SBYZn1GL5FhRHbtLDZoYNNjh62BLTb2Qb7/DbLyDIClhjgsqf9lOvu9tWuZa1rXIuaPnTNrfnR7XAdbUMyOuWI4VHDh5/sMwTWfYLJio/wdnM5QlTFiNJ+gDjdBvD0aUg0pmLexcVIuZ6IlGs8pHbEwsrj028wNKMRw7KaMewDDYZn6zBih56QlFzDY0gHBllk7EW6pFd3v7LmP9PZYe5XLnmyMS7bBVfHVkkJKIJ3zRn4SU8iQHYCUxXlmKEsRZhqCyLVGzFLtxY83QokGJZhrjEZCy/NxuIrcUi5GgWrMYduwjqjCUM3awioxTACDt+mx4jtHDLHAjJfB/vE/d024QVjONNj5ZIrG/PH4wJ4iE/Dp+Yk/KXHESg7gmkMsKEAIcptCG/ehKiW1YhvTUWCfiGSDHORfJGAl2ORciUcVqPyDbDOUsOagEO3tGLYVt0jSLabDJK62YvM08E2oQI2EQVHOYvFmnhccMlT9E94S07Ar/YjTKrdjSny3Zih2IrQxkxENqUhWrUCsS3LWWCiPhHJ7XFYfCnSDLSn7gzJ0hBQC2sCDv2AgE9B2s49DOocbGPK1nEOi+X7yX+PeYmOwEd8GL7iShY4Vb6TBYbUZyC8cRWim5cjriUZCZoEJOlnI0kXgwVtEVjUHtJpNThDjcEEHELAIZtbOSTFEvIv5wmXD9voMtjF7VvDOSyWJ/9QgqeQgMIK+Iv3IrCmBG9Kd2C6fDOC694n4EpENS1HbPNc8Fp4hIvF3NYwzNfPxELjTIHVoAwNBmdqCckAn4LM1sAmqgi2USWwjd0Lu/gDqzmHxfLi76/0EZTSM70cgeJCTBZvwTRpBqZL1yBYvoKASxHRmIIY5RzwmmOQoI5BoiYMc7UhmN86I8jqd5s0GJRBwB4kCx0ISXnvHM1dIeH2wG7WAdjxDio5x4DlWb3XzYtf1uXD30XP9zwECLMRJMrEFPF6vFW7AsHSpQiVpyC8bh5iGuNZYHxTJOa0hCBRHWz+KEDAzmdFjkg6TEtbCttZFdS9g7CbfaiLfRML5VVVIvCqLoZPdQEBcwi4DUHC9XhT/D6mSd5FcG0ywuTzEamIZ4EMjtcUSsDQDu4tCLhRY2SAPchBDJLSH2nNIUeE76Tu7SZcJXXvEANkflZyb/VYeVUVG72rCwmYC3/+ZkwSrMMU0WpMFa/igAsxU5aEcHk8ohQxiKkPx6zGmUaeMrjvqPXSBk3lSxvNQDOSMgBy6AZ6DEbQ/MXR7PGoe7zDBKTwDnXR7wMe070v5Lr5XMgx+VVvJWAWAvibMEX4HqYKUzFNlIKQmiTKHETI4xBVF90VrYjM4V7aVy9tULsREk9DDv2rFDaRuwi4j+teL5AB9y3JAOVXtSnIv3rDqUn8NOVkwUrTNOES0zTRItPbkiRTSA1PGSaNfRzWvwjZ8SQkM5fWawkYRUBm/h4Hwj6+su+A+cIrXZ1GSPQiOSiL5G6eIevoGBZBm7NlIOVAp/2s/S/2a43eSlebzEiKBeSIsBxLS9wDBAG77WdVCOzjKix/fLRQTuGFQU7hBRb+QeoixQy0gByWUDnQTfJzIKUCBOy2j9undIjd+8RvtRwji90cI3blOEYUdRAQBOzm/jRApauVT0Jar7hAT5Hin28zloCUfSAgHGL2UHabHKLLKWVKx6hSo2NUiYlwnRQQkFJEOBb4xM2fQXYySKsBkIM30oGW2Qv7NurnAYKAlDIQkFICFvcosJOATxmNdLUbpcsS0nr5GXa74R51vXkBwG4CPuPcpqsTnoQczqswn2YIxHaSx+B+FbCbgAnc1Z+xzJ18dLlpG2KQgzaoMCy2zIxkOtmD+2XATgI+9x3fV9yN0x/JdJNFxpRyy00YBhbP4Z4dqKT8ClxPmbcgEwPtj2RncsmnsJmZA3u6MAPqgZlDODqasbhHgSYC/gZfqpuh9Fh8FDloXQOGJ5+gjwAlsKPTth11lQXT0cyBumVPN4FdPHUzuryDgL/9t/2EpAOGupKQRkJ29t8rB6cr6bktw4j3aM9ceQ6jV5198Ie1Vddd085P4V79HGVl9X8MVyNGbluHFAAAAABJRU5ErkJggg==" InformativeScreenshot="d7d0e14bde4c293041c66e8736a08d66.png" Selector="&lt;html app='msedge.exe' url='file:///C:/Users/siddh/OneDrive/Documents/UiPath/RPA_Pracs/invoices/wordpress.pdf' /&gt;" Title="wordpress.pdf" Url="[&quot;file:///&quot;+currentItem]" />
-                              </uix:NApplicationCard.TargetApp>
-                            </uix:NApplicationCard>
                           </Sequence>
                         </ActivityAction>
                       </ui:WindowScope.Body>
                     </ui:WindowScope>
                   </Sequence>
                 </ActivityAction>
-              </ui:ForEach.Body>
-            </ui:ForEach>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
           </Sequence>
         </ActivityAction>
-      </ui:ExcelApplicationScope.Body>
-    </ui:ExcelApplicationScope>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
   </Sequence>
 </Activity>
