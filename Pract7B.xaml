@@ -171,7 +171,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'pane'" sap:VirtualizedContainerService.HintSize="387.2,107.2" sap2010:WorkflowViewState.IdRef="GetValue_6">
                               <ui:GetValue.Target>
-                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="078145e9-f5e6-4b8f-96ab-0145c804b230" InformativeScreenshot="62192906ee5f8fe3406d79205706d9dd" Selector="&lt;wnd cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;">
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="078145e9-f5e6-4b8f-96ab-0145c804b230" InformativeScreenshot="00a08dec3dbdb7222f222142e1b86923" Selector="&lt;ctrl name='wordpress.pdf' role='document' /&gt;&lt;ctrl name='This is an untagged 1 page document, the reading experience may *' role='document' /&gt;&lt;ctrl name='Page 1' role='pane' /&gt;&lt;ctrl idx='10' role='grouping' /&gt;">
                                   <ui:Target.TimeoutMS>
                                     <InArgument x:TypeArguments="x:Int32" />
                                   </ui:Target.TimeoutMS>
